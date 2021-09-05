@@ -1,12 +1,16 @@
 package com.picpay.desafio.android
 
+import android.provider.Contacts
+import com.picpay.desafio.android.model.User
+import com.picpay.desafio.android.service.PicPayServiceApi
+import kotlinx.coroutines.Dispatchers
+
 class ExampleService(
-    private val service: PicPayService
+    private val serviceApi: PicPayServiceApi
 ) {
 
     fun example(): List<User> {
-        val users = service.getUsers().execute()
-
-        return users.body() ?: emptyList()
+            val users = serviceApi.getUsers()
+            return users.body() ?: emptyList()
     }
 }

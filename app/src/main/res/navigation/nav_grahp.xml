@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaUserFragment">
+
+    <fragment
+        android:id="@+id/listaUserFragment"
+        android:name="com.picpay.desafio.android.ui.fragment.ListaUserFragment"
+        android:label="Lista Contato" >
+        <action
+            android:id="@+id/action_listaUserFragment_to_detailUserFragment"
+            app:destination="@id/detailUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailUserFragment"
+        android:name="com.picpay.desafio.android.ui.fragment.DetailUserFragment"
+        android:label="DetailUserFragment" />
+</navigation>
+

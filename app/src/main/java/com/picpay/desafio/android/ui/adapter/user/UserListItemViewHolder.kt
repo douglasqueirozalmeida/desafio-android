@@ -1,19 +1,24 @@
-package com.picpay.desafio.android
+package com.picpay.desafio.android.ui.adapter.user
 
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.picpay.desafio.android.R
+import com.picpay.desafio.android.model.User
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_user.view.*
 
 class UserListItemViewHolder(
-    itemView: View
+    itemView: View,
 ) : RecyclerView.ViewHolder(itemView) {
+
 
     fun bind(user: User) {
         itemView.name.text = user.name
         itemView.username.text = user.username
         itemView.progressBar.visibility = View.VISIBLE
+        Picasso.get().isLoggingEnabled = true;
         Picasso.get()
             .load(user.img)
             .error(R.drawable.ic_round_account_circle)
@@ -23,6 +28,7 @@ class UserListItemViewHolder(
                 }
 
                 override fun onError(e: Exception?) {
+                    Log.w(this.javaClass.name, "falha no download da imagem", e)
                     itemView.progressBar.visibility = View.GONE
                 }
             })
