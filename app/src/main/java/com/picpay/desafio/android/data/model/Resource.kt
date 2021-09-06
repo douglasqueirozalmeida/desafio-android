@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.model
+package com.picpay.desafio.android.data.model
 
 sealed class Resource<T>(
     val data: T? = null,

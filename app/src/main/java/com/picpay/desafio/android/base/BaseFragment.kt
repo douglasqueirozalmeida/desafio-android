@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 
 abstract class BaseFragment(@LayoutRes fragmentLayout: Int) : Fragment(fragmentLayout) {
 
-    val navController by lazy {
+    private val navController by lazy {
         findNavController()
     }
 

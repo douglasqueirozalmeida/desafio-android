@@ -1,7 +1,7 @@
-package com.picpay.desafio.android.database.dao
+package com.picpay.desafio.android.data.database.dao
 
 import androidx.room.*
-import com.picpay.desafio.android.model.User
+import com.picpay.desafio.android.data.model.User
 
 @Dao
 interface UserDAO {

@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: "androidx.navigation.safeargs.kotlin"
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
+
+def STRING_TYPE = "String"
+def URL_API = "URL_API"
 
 android {
     compileSdkVersion 30
@@ -36,12 +35,16 @@ android {
     }
 
     buildTypes {
-        debug {}
-
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField STRING_TYPE, URL_API, "\"http://609a908e0f5a13001721b74e.mockapi.io/picpay/api/\""
+        }
+
+        debug {
+            buildConfigField STRING_TYPE, URL_API, "\"http://609a908e0f5a13001721b74e.mockapi.io/picpay/api/\""
         }
     }
 

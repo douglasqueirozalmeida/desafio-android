@@ -1,8 +1,8 @@
 package com.picpay.desafio.android
 
 import android.provider.Contacts
-import com.picpay.desafio.android.model.User
-import com.picpay.desafio.android.service.PicPayServiceApi
+import com.picpay.desafio.android.data.model.User
+import com.picpay.desafio.android.data.service.PicPayServiceApi
 import kotlinx.coroutines.Dispatchers
 
 class ExampleService(

@@ -1,11 +1,11 @@
-package com.picpay.desafio.android.database
+package com.picpay.desafio.android.data.database
 
+import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.picpay.desafio.android.application.MyApplication
-import com.picpay.desafio.android.database.dao.UserDAO
-import com.picpay.desafio.android.model.User
+import com.picpay.desafio.android.data.database.dao.UserDAO
+import com.picpay.desafio.android.data.model.User
 
 @Database(entities = [User::class], version = 1, exportSchema = true)
 abstract class MyDataBase : RoomDatabase() {
@@ -16,7 +16,7 @@ abstract class MyDataBase : RoomDatabase() {
         @Volatile
         private var INSTANCE: MyDataBase? = null
 
-        fun getIntanceDatabase(context: MyApplication): MyDataBase? {
+        fun getIntanceDatabase(context: Application): MyDataBase? {
             synchronized(this) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(
@@ -24,8 +24,6 @@ abstract class MyDataBase : RoomDatabase() {
                         MyDataBase::class.java,
                         "desafio-db"
                     )
-//                        .addMigrations()
-//                        .fallbackToDestructiveMigrationFrom()
                         .build()
                 }
             }

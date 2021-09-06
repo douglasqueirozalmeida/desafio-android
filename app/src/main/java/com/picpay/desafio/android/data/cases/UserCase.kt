@@ -1,10 +1,10 @@
-package com.picpay.desafio.android.service
+package com.picpay.desafio.android.data.cases
 
-import com.picpay.desafio.android.model.Resource
-import com.picpay.desafio.android.model.User
-import com.picpay.desafio.android.repository.UserRepository
+import com.picpay.desafio.android.data.model.Resource
+import com.picpay.desafio.android.data.model.User
+import com.picpay.desafio.android.data.repository.UserRepository
 
-class UserService(private val userRepository: UserRepository) {
+class UserCase(private val userRepository: UserRepository) {
 
     suspend fun getUsers(): Resource<List<User>?> {
         val resp = userRepository.getUsers()

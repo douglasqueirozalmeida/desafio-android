@@ -1,15 +1,13 @@
-package com.picpay.desafio.android.base
+package com.picpay.desafio.android.data.service
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.picpay.desafio.android.service.PicPayServiceApi
+import com.picpay.desafio.android.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-abstract class BaseRepository {
-
-    private val url = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
+object ResquestApi {
 
     private val gson: Gson by lazy { GsonBuilder().create() }
 
@@ -18,15 +16,11 @@ abstract class BaseRepository {
             .build()
     }
 
-    private val retrofit: Retrofit by lazy {
+    val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(url)
+            .baseUrl(BuildConfig.URL_API)
             .client(okHttp)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-    }
-
-    val serviceApi: PicPayServiceApi by lazy {
-        retrofit.create(PicPayServiceApi::class.java)
     }
 }
