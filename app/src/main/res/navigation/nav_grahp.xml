@@ -15,6 +15,6 @@
     <fragment
         android:id="@+id/detailUserFragment"
         android:name="com.picpay.desafio.android.ui.fragment.DetailUserFragment"
-        android:label="DetailUserFragment" />
+        android:label="Detalhe Usuario" />
 </navigation>
 
