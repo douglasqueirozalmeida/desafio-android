@@ -73,7 +73,7 @@ public class MigrationTest {
     public static final Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
-//            database.execSQL("ALTER TABLE `User` RENAME id to id");
+//            database.execSQL("ALTER TABLE `User` add column teste TEXT");
         }
     };
 }
